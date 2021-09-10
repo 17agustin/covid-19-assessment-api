@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
+const { MONGO_DB_URI } = process.env;
 
-const URI =
-  "mongodb+srv://mongo_user:t3r0mp0s@mongocluster.6rwzn.mongodb.net/covid19stats?retryWrites=true&w=majority";
 
 const options = {
   useNewUrlParser: true,
@@ -9,8 +9,8 @@ const options = {
 };
 
 mongoose
-  .connect(URI, options)
-  .then((db) => console.log("Db is connected"))
+  .connect(MONGO_DB_URI, options)
+  .then(() => console.log("Db is connected"))
   .catch((error) => console.error(error));
 
 module.exports = mongoose;

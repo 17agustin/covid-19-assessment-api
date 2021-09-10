@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { axiosFunction, decrypt } = require("../../utils/utils");
-const jwt = require("jsonwebtoken");
+const { decrypt } = require("../../utils/utils");
 
 //  Models
 
@@ -14,23 +13,25 @@ router.use(decrypt);
 //Routes
 
 router.get("/", async (req, res) => {
-  const {query} = req.query
-  if(query){
-    const country = query.charAt(0).toUpperCase() + query.slice(1).toLowerCase()
-    const queryCountry = await Statistic.findOne({country}).exec()
-    if(queryCountry){
-      const id = await Statistic.findById(queryCountry._id).exec()
-      if(id) res.json(id._id)
-    }else {
-      return res.json({"msg":"country not found"})
+  const { query } = req.query;
+  if (query) {
+    const country =
+      query.charAt(0).toUpperCase() + query.slice(1).toLowerCase();
+    const queryCountry = await Statistic.findOne({ country }).exec();
+    if (queryCountry) {
+      const id = await Statistic.findById(queryCountry._id).exec();
+      if (id) res.json(id._id);
+    } else {
+      return res.json({ msg: "country not found" });
     }
-  }else{
-  try {
-    const final = await Statistic.find({}).sort([['continent', -1]]);
-    return res.json(final);
-  } catch (error) {
-    return console.log(error);
-  }}
+  } else {
+    try {
+      const final = await Statistic.find({}).sort([["continent", -1]]);
+      return res.json(final);
+    } catch (error) {
+      return console.log(error);
+    }
+  }
 });
 
 router.get("/:id", async (req, res) => {
@@ -45,9 +46,9 @@ router.get("/:id", async (req, res) => {
 
 router.post("/:id", async (req, res) => {
   const { id } = req.params;
-  const { population } = req.body;
+  const { deaths , cases , tests } = req.body;
   try {
-    const fin = await Statistic.findByIdAndUpdate(id, {population});
+    const fin = await Statistic.findByIdAndUpdate(id, { population });
     return res.json(fin);
   } catch (error) {
     return console.log(error);
