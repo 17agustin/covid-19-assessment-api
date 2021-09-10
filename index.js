@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-const path = require('path');
 const cors = require("cors")
 
 const indexRoute = require("./src/routes/index")

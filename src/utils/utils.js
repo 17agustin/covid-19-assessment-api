@@ -8,8 +8,6 @@ const {
  } = process.env;
  const jwt = require("jsonwebtoken")
 
-const {Country} = require("../models/countries");
-const {Statistic} = require("../models/statistics")
 
 const axiosFunction = async (param) => {
   const options = {
@@ -40,18 +38,6 @@ const validateEmail = (email) => {
   }
 };
 
-const populateCountries = async () => {
-  const isPopulated = await Country.findOne({ name: "Afghanistan" }).exec();
-  if (isPopulated) return console.log("countries are already populated"); // doesn't create any document if it's already populated
-  let param = "countries";
-  const response = await axiosFunction(param);
-  if (response) {
-    response.map(async (country) => {
-      await Countries.create({ name: country });
-    });
-    return console.log("countries populated")
-};
-}
 
 const decrypt = (req, res, next) => {
   const bearerHeader =  req.headers['authorization'];
@@ -70,6 +56,5 @@ const decrypt = (req, res, next) => {
 module.exports = {
   axiosFunction,
   validateEmail,
-  populateCountries,
   decrypt
 };
