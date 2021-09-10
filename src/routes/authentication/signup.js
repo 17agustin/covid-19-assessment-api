@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 /* require("dotenv").config();
 const { SECRET_JWT } = process.env; */
-const {User} = require("../../models/users");
+const { User } = require("../../models/users");
 const bcrypt = require("bcryptjs");
 const { validateEmail } = require("../../utils/utils");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 
 router.post("/", async (req, res) => {
   const { name, lastname, email, password } = req.body;
@@ -23,18 +23,6 @@ router.post("/", async (req, res) => {
       password: hashedPassword,
     });
     newUser.save();
-/*     const encrypt = {
-      name: newUser.name,
-      lastname: newUser.lastname,
-      email : newUser.email,
-      password: newUser.password
-  }
-
-    const token = jwt.sign(encrypt, SECRET_JWT)
-    const data = {
-      newUser,
-      token
-    } */
     return res.json(newUser);
   } catch (error) {
     return console.log(error);

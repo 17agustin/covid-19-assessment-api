@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const types = require("./types")
+const types = require("./types");
 
 const StatsSchema = new Schema({
   continent: {
@@ -30,7 +30,7 @@ const StatsSchema = new Schema({
 
 const Statistic = mongoose.model("Statistic", StatsSchema);
 
-module.exports = {Statistic};
+module.exports = { Statistic };
 
 /* {"statistics":{
   "continent":"Oceania",
