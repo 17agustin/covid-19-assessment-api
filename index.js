@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
+const db = require("./src/database")
 
 const indexRoute = require("./src/routes/index");
 
@@ -20,7 +21,13 @@ app.use(cors());
 // Routes
 app.use("/api", indexRoute);
 
-// Starting the server
-app.listen(app.get("port"), () => {
+// Starting the server // connect database
+
+db.connect()
+.then(()=>{
+  app.listen(app.get("port"), () => {
   console.log(`Server on port ${app.get("port")}`);
 });
+})
+
+module.exports = app;

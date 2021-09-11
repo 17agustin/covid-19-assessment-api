@@ -21,10 +21,10 @@ const axiosFunction = async (param) => {
   }
 };
 
-const validateEmail = (email) => {
-  let regex =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-  if (regex.test(email)) {
+const validate = (valid, type) => {
+  let passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
+  let emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  if (type === "password" ? passwordRegex.test(valid) :emailRegex.test(valid)) {
     return true;
   } else {
     return false;
@@ -45,8 +45,9 @@ const decrypt = (req, res, next) => {
   }
 };
 
+
 module.exports = {
   axiosFunction,
-  validateEmail,
-  decrypt,
+  validate,
+  decrypt
 };
