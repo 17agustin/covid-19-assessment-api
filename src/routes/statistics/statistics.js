@@ -61,7 +61,7 @@ router.post("/:id", async (req, res) => {
         total: deaths.total
       },
       tests:{
-        total: tests.total
+        total: tests
       }
      });
     return res.json(fin);
