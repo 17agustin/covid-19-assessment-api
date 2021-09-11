@@ -8,11 +8,6 @@ const options = {
   useUnifiedTopology: true,
 };
 
-/* mongoose
-  .connect(MONGO_DB_URI, options)
-  .then(() => console.log("Db is connected"))
-  .catch((error) => console.error(error)); */
-
 function connect() {
   return new Promise((resolve, reject) => {
 
