@@ -48,7 +48,22 @@ router.post("/:id", async (req, res) => {
   const { id } = req.params;
   const { deaths , cases , tests } = req.body;
   try {
-    const fin = await Statistic.findByIdAndUpdate(id, { population });
+    const fin = await Statistic.findByIdAndUpdate(id, { 
+      cases:{
+        new: cases.new,
+        active: cases.active,
+        critical: cases.critical,
+        recovered: cases.recovered,
+        total:  cases.total
+      },
+      deaths:{
+        new:deaths.new,
+        total: deaths.total
+      },
+      tests:{
+        total: tests.total
+      }
+     });
     return res.json(fin);
   } catch (error) {
     return console.log(error);
