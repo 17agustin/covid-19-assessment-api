@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon -L",
     "dev": "nodemon src/index.js",
-    "build":"webpack",
+    "build": "webpack",
     "test": "mocha  ./test/**/*.spec.js --timeout 10000 --exit"
   },
   "author": "",
@@ -23,8 +23,8 @@
     "mockgoose": "^8.0.4",
     "mongoose": "^6.0.5",
     "morgan": "^1.10.0",
+    "node": "16.9.1",
     "nodemon": "^2.0.12",
-    "supertest": "^6.1.6",
-    "node":"16.9.1"
+    "supertest": "^6.1.6"
   }
 }
