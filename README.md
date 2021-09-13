@@ -8,13 +8,14 @@ https://rapidapi.com/api-sports/api/covid-193
 
 To Run the api locally will need to follow the next steps:
 
-## get a rapid api key
+## Get a rapid api key
 
 Through a login with Github, Facebook, or Google, they grant you an API key that you will use
 
 ## Clone
 
 - Clone the repo to your device
+- just run the comand `git clone https://github.com/17agustin/covid-19-assessment-api.git`
 - Run <code>npm install</code> or <code>yarn install</code> to install the dependencies.
 
 ## Configure .env
@@ -29,13 +30,13 @@ Through a login with Github, Facebook, or Google, they grant you an API key that
 - MONGO_DB_URI = your local mongo database or mongo atlas database
 - TEST_TOKEN = ****** if you want to run test you will need a valid jwt, you cant grant one once you signed up!
 
-## run the backend
+## Run the backend
 
 - now you can run the app
 - to run use <code> npm start</code> or  ``` yarn start  ```
 - this will start the api in "http://localhost:3001"
 
-## testing
+## Testing
 
 if you want to run the test, you need to:
 
@@ -43,7 +44,7 @@ if you want to run the test, you need to:
 - run comand <code>npm test</code>
 
 
-# further information
+## Further information
 
 if you have any trouble with the app, contact me via email and i'll help you
 
