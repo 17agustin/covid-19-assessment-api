@@ -16,7 +16,6 @@ Through a login with Github, Facebook, or Google, they grant you an API key that
 
 - Clone the repo to your device
 - Run <code>npm install</code> or <code>yarn install</code> to install the dependencies.
-- 
 
 # Configure .env
 
@@ -24,7 +23,7 @@ Through a login with Github, Facebook, or Google, they grant you an API key that
 - there you need to declare the next  enviroment variables.
 
 - RAPIDAPI_HOST= "covid-193.p.rapidapi.com"
-- RAPIDAPI_KEY= your rapid api key
+- RAPIDAPI_KEY= ******your rapid api key
 - BASE_URL= "https://covid-193.p.rapidapi.com"
 - SECRET_JWT = ****** you must create your own secret jwt
 - MONGO_DB_URI = your local mongo database or mongo atlas database
