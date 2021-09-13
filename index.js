@@ -10,6 +10,7 @@ const indexRoute = require("./src/routes/index");
 const { mongoose } = require("./src/database");
 
 // Settings
+const host = process.env.HOST || '0.0.0.0'
 app.set("port", process.env.PORT || 3001);
 
 // Middlewares
@@ -25,7 +26,7 @@ app.use("/api", indexRoute);
 
 db.connect()
 .then(()=>{
-  app.listen(app.get("port"), () => {
+  app.listen(app.get("port"),host, () => {
   console.log(`Server on port ${app.get("port")}`);
 });
 })
