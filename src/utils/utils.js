@@ -45,9 +45,32 @@ const decrypt = (req, res, next) => {
   }
 };
 
+const separateByContinents = (statistics)=>{
+  const Samerica =
+  statistics.length > 0 &&
+  statistics.filter((stat) => stat.continent === "South-America");
+const Namerica =
+  statistics.length > 0 &&
+  statistics.filter((stat) => stat.continent === "North-America");
+const Europe =
+  statistics.length > 0 &&
+  statistics.filter((stat) => stat.continent === "Europe");
+const Oceania =
+  statistics.length > 0 &&
+  statistics.filter((stat) => stat.continent === "Oceania");
+const Asia =
+  statistics.length > 0 &&
+  statistics.filter((stat) => stat.continent === "Asia");
+const Africa =
+  statistics.length > 0 &&
+  statistics.filter((stat) => stat.continent === "Africa");
+
+  return [Samerica, Namerica, Europe, Oceania, Asia, Africa]
+}
 
 module.exports = {
   axiosFunction,
   validate,
-  decrypt
+  decrypt,
+  separateByContinents
 };
