@@ -33,7 +33,7 @@ app.use("/api", indexRoute);
 
 db.connect()
 .then(()=>{
-  app.listen(app.get("port"),host, () => {
+  app.listen(app.get("port"), () => {
   console.log(`Server on port ${app.get("port")}`);
 });
 })
