@@ -9,10 +9,10 @@ const jwt = require("jsonwebtoken");
 
 router.post("/", async (req, res) => {
   const { name, lastname, email, password } = req.body;
-  if (validate(email,"email") === false) {
+  if (validate(email, "email") === false) {
     return res.json({ msg: "you can't signup" });
   }
-  if (validate(password,"password") === false) {
+  if (validate(password, "password") === false) {
     return res.json({ msg: "you can't signup" });
   }
   let existentUser = await User.findOne({ email: email }).exec();

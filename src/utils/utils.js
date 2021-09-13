@@ -22,9 +22,12 @@ const axiosFunction = async (param) => {
 };
 
 const validate = (valid, type) => {
-  let passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
-  let emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-  if (type === "password" ? passwordRegex.test(valid) :emailRegex.test(valid)) {
+  let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+  let emailRegex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  if (
+    type === "password" ? passwordRegex.test(valid) : emailRegex.test(valid)
+  ) {
     return true;
   } else {
     return false;
@@ -45,32 +48,32 @@ const decrypt = (req, res, next) => {
   }
 };
 
-const separateByContinents = (statistics)=>{
+const separateByContinents = (statistics) => {
   const Samerica =
-  statistics.length > 0 &&
-  statistics.filter((stat) => stat.continent === "South-America");
-const Namerica =
-  statistics.length > 0 &&
-  statistics.filter((stat) => stat.continent === "North-America");
-const Europe =
-  statistics.length > 0 &&
-  statistics.filter((stat) => stat.continent === "Europe");
-const Oceania =
-  statistics.length > 0 &&
-  statistics.filter((stat) => stat.continent === "Oceania");
-const Asia =
-  statistics.length > 0 &&
-  statistics.filter((stat) => stat.continent === "Asia");
-const Africa =
-  statistics.length > 0 &&
-  statistics.filter((stat) => stat.continent === "Africa");
+    statistics.length > 0 &&
+    statistics.filter((stat) => stat.continent === "South-America");
+  const Namerica =
+    statistics.length > 0 &&
+    statistics.filter((stat) => stat.continent === "North-America");
+  const Europe =
+    statistics.length > 0 &&
+    statistics.filter((stat) => stat.continent === "Europe");
+  const Oceania =
+    statistics.length > 0 &&
+    statistics.filter((stat) => stat.continent === "Oceania");
+  const Asia =
+    statistics.length > 0 &&
+    statistics.filter((stat) => stat.continent === "Asia");
+  const Africa =
+    statistics.length > 0 &&
+    statistics.filter((stat) => stat.continent === "Africa");
 
-  return [Samerica, Namerica, Europe, Oceania, Asia, Africa]
-}
+  return [Samerica, Namerica, Europe, Oceania, Asia, Africa];
+};
 
 module.exports = {
   axiosFunction,
   validate,
   decrypt,
-  separateByContinents
+  separateByContinents,
 };
