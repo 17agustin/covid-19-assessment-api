@@ -32,7 +32,7 @@ Through a login with Github, Facebook, or Google, they grant you an API key that
 # run the backend
 
 - now you can run the app
-- to run use <code> npm start </code> or  ``` yarn start  ```
+- to run use <code> npm start</code> or  ``` yarn start  ```
 - this will start the api locally
 
 # testing
