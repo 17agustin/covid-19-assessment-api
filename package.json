@@ -27,7 +27,7 @@
     "mockgoose": "^8.0.4",
     "mongoose": "^6.0.5",
     "morgan": "^1.10.0",
-    "node": "16.9.1",
+    "node": "^16.9.1",
     "nodemon": "^2.0.12",
     "supertest": "^6.1.6"
   }
